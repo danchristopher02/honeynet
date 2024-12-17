@@ -1,5 +1,4 @@
 # Building a SOC + Honeynet in Azure (Live Traffic)
-![Cloud Honeynet / SOC](https://i.imgur.com/ZWxe03e.jpg)
 
 ## Introduction
 
@@ -32,23 +31,27 @@ For the "BEFORE" metrics, all resources were originally deployed, exposed to the
 For the "AFTER" metrics, Network Security Groups were hardened by blocking ALL traffic with the exception of my admin workstation, and all other resources were protected by their built-in firewalls as well as Private Endpoint
 
 ## Attack Maps Before Hardening / Security Controls
-![NSG Allowed Inbound Malicious Flows](https://i.imgur.com/1qvswSX.png)<br>
-![Linux Syslog Auth Failures](https://i.imgur.com/G1YgZt6.png)<br>
-![Windows RDP/SMB Auth Failures](https://i.imgur.com/ESr9Dlv.png)<br>
+![windows-rdp-auth-fail (Before)](https://github.com/user-attachments/assets/7a6d8603-90f7-4a9e-bdff-007d2c5a6975)
+![linux-ssh-auth-fail (Before)](https://github.com/user-attachments/assets/9f400dae-a0ef-4354-819a-56c40f994cc3)
+![nsg-malicious-allowed-in (Before)](https://github.com/user-attachments/assets/0973ca18-fd5d-4cab-a721-37bf116af036)
+![mssql-auth-fail (Before)](https://github.com/user-attachments/assets/fedc4a5e-1a60-49fe-8452-3cec4130dea6)
+
+
 
 ## Metrics Before Hardening / Security Controls
 
 The following table shows the metrics we measured in our insecure environment for 24 hours:
-Start Time 2023-03-15 17:04:29
-Stop Time 2023-03-16 17:04:29
 
-| Metric                   | Count
-| ------------------------ | -----
-| SecurityEvent            | 19470
-| Syslog                   | 3028
-| SecurityAlert            | 10
-| SecurityIncident         | 348
-| AzureNetworkAnalytics_CL | 843
+Start Time 11/13/2024  7:01:32 PM
+Stop Time 11/14/2024  7:01:32 PM
+
+|  Metric                                         | Count
+|  --------------------------------------         | -----
+|  Security Events (Windows VMs)                  | 37216
+|  Syslog (Linux VMs)                             | 23628
+|  SecurityAlert (Microsoft Defender for Cloud)   | 0
+|  SecurityIncident (Sentinel Incidents)          | 294
+|  NSG Inbound Malicious Flows Allowed            | 2061
 
 ## Attack Maps Before Hardening / Security Controls
 
@@ -57,16 +60,17 @@ Stop Time 2023-03-16 17:04:29
 ## Metrics After Hardening / Security Controls
 
 The following table shows the metrics we measured in our environment for another 24 hours, but after we have applied security controls:
-Start Time 2023-03-18 15:37
-Stop Time	2023-03-19 15:37
 
-| Metric                   | Count
-| ------------------------ | -----
-| SecurityEvent            | 8778
-| Syslog                   | 25
-| SecurityAlert            | 0
-| SecurityIncident         | 0
-| AzureNetworkAnalytics_CL | 0
+Start Time 11/17/2024  11:49:49 PM
+Stop Time	11/18/2024  11:49:49 PM
+
+| Metric                                         | Count
+| --------------------------------------         | -----
+| Security Events (Windows VMs)                  | 766
+| Syslog (Linux VMs)                             | 0
+| SecurityAlert (Microsoft Defender for Cloud)   | 0
+| SecurityIncident (Sentinel Incidents)          | 0
+| NSG Inbound Malicious Flows Allowed            | 0
 
 ## Conclusion
 
