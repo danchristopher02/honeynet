@@ -53,7 +53,7 @@ Stop Time 11/14/2024  7:01:32 PM
 |  SecurityIncident (Sentinel Incidents)          | 294
 |  NSG Inbound Malicious Flows Allowed            | 2061
 
-## Attack Maps Before Hardening / Security Controls
+## Attack Maps After Hardening / Security Controls
 
 ```All map queries actually returned no results due to no instances of malicious activity for the 24 hour period after hardening.```
 
